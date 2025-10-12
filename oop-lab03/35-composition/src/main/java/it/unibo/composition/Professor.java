@@ -1,5 +1,7 @@
 package it.unibo.composition;
 
+import java.util.Arrays;
+
 public class Professor implements User {
     private final int id;
     private final String name;
@@ -29,7 +31,7 @@ public class Professor implements User {
             + ", surname=" + this.surname
             + ", id=" + this.id
             + ", userName= " + getUsername()
-            + ", courses=" + this.courses
+            + ", courses=" + Arrays.toString(this.courses)
             + "]";
     }
 

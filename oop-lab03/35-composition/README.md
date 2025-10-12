@@ -22,7 +22,7 @@
         * `Professor professor`
         * `ExamRoom room` (fornita nei sorgenti)
         * `Student[] students`
-    - Un solo costruttore che richieda i dati necessari ad inizializzare la classe. Inizialmente ci dovranno essere zero studenti registrati.
+    -no essere zero studenti registrati.
     - Metodi:
         * Opportuni selettori per le proprietà dell'esame
         * `public void registerStudent(Student student)`: iscrive lo studente all'appello. Qualora si sia raggiunto il limite massimo di studenti per l'appello, non fa nulla.

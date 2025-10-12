@@ -22,7 +22,7 @@ public class StrictBankAccount implements BankAccount {
     }
 
     public void withdraw(int id, double amount) {
-        if(amount < balace){
+        if(amount <= balace){
             makeTransaction(id, -amount);
         }
     }
@@ -36,14 +36,14 @@ public class StrictBankAccount implements BankAccount {
     }
 
     public void withdrawFromATM(int id, double amount) {
-        if(amount < balace){
+        if(amount <= balace){
             makeTransaction(id, -amount-ATM_TRANSACTION_FEE);
         }
     }
         
     public void chargeManagementFees(int id) {
         double fees = 5+transactions*0.1;
-        if( fees < balace){
+        if( fees <= balace){
             makeTransaction(id, -fees);
         }
     }
