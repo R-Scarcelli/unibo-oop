@@ -5,3 +5,5 @@ build/
 *.pdf
 # rule exception (beginning with a !): pdf files named 'myImportantFile.pdf' should be tracked
 !myImportantFile.pdf
+*.class
+*_Zone.Identifier
