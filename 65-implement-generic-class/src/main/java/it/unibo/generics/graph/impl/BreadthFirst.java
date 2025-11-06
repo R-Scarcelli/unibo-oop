@@ -1,0 +1,56 @@
+/**
+ *  1  procedure BFS(G, root) is
+ *  2      let Q be a queue
+ *  3      label root as explored
+ *  4      Q.enqueue(root)
+ *  5      while Q is not empty do
+ *  6          v := Q.dequeue()
+ *  7          if v is the goal then
+ *  8              return v
+ *  9          for all edges from v to w in G.adjacentEdges(v) do
+ *  10              if w is not labeled as explored then
+ *  11                  label w as explored 
+ *  12                  w.parent := v
+ *  13                  Q.enqueue(w)
+ */
+package it.unibo.generics.graph.impl;
+
+import it.unibo.generics.graph.api.FringeAccumulationStrategy;
+
+import java.util.Deque;
+
+/**
+ * Breadth first accumulation.
+ *
+ * @param <S>
+ *            step type
+ */
+public final class BreadthFirst<S> implements FringeAccumulationStrategy<S> {
+
+    /*
+     * Singleton object: since the object is stateless, we don't need more than an instance.
+     */
+    private static final BreadthFirst<?> INSTANCE = new BreadthFirst<>();
+
+    private BreadthFirst() {
+    }
+
+    /**
+     * @param <S>
+     *            the step type
+     * @return an instance of a {@link DepthFirst}.
+     */
+    @SuppressWarnings("unchecked")
+    public static <S> BreadthFirst<S> getInstance() {
+        /*
+         * Safe to cast: the actual generic type is irrelevant, as far as addToFringe is
+         * used consistently.
+         */
+        return (BreadthFirst<S>) INSTANCE;
+    }
+
+    @Override
+    public void addToFringe(final Deque<? super S> fringe, final S step) {
+        fringe.addLast(step);
+    }
+}
